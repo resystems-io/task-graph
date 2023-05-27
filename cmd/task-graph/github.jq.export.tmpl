@@ -1,0 +1,2 @@
+jq -r '[.data.node.items.nodes[]|{column:.fieldValueByName.name, issue: .content.url, title: .content.title}]|.[]|select(.column | . != null and test("^{{.ColumnValue}}"))|select(.issue != null)|.issue' \
+| sed '1,$s/\(.*\)/- [ ] \1/'

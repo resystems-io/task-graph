@@ -1,0 +1,10 @@
+curl -s 'https://api.github.com/graphql'      \
+    -H 'Accept-Encoding: gzip, deflate, br'   \
+    -H 'Content-Type: application/json'       \
+    -H 'Accept: application/json'             \
+    -H 'Connection: keep-alive'               \
+    -H 'Origin: altair://-'                   \
+    -H 'Authorization: Bearer {{.AuthorisationToken}}' \
+    --data-binary '{{.Query}}' \
+    --compressed \
+| {{.Piped}}
